@@ -41,10 +41,12 @@ export const isPanningStartAllowed = (
 export const isPanningAllowed = (
   contextInstance: ReactZoomPanPinchContext,
 ): boolean => {
-  const { isInitialized, isPanning, setup } = contextInstance;
+  const { isInitialized, isPanning, setup, transformState } = contextInstance;
+  const { scale } = transformState;
+  const { disablePadding } = setup;
   const { disabled } = setup.panning;
 
-  const isAllowed = isInitialized && isPanning && !disabled;
+  const isAllowed = isInitialized && isPanning && !disabled && (scale > 1 || !disablePadding);
 
   if (!isAllowed) return false;
 
