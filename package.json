@@ -19,10 +19,10 @@
     "lint": "eslint . --ext .js,.jsx,.tsx,.ts --fix",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "prepare": "install-peers && yarn build",
-    "predeploy": "yarn run build:docs",
+    "prepare": "install-peers && pnpm build",
+    "predeploy": "pnpm run build:docs",
     "deploy": "gh-pages -d storybook-static",
-    "release": "yarn semantic-release"
+    "release": "pnpm semantic-release"
   },
   "peerDependencies": {
     "react": "*",
